@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 8%;
+    --card: 0 0% 98%;
+    --card-foreground: 240 10% 8%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 240 10% 8%;
+    --primary: 263 70% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 93%;
+    --secondary-foreground: 240 10% 15%;
+    --muted: 240 5% 93%;
+    --muted-foreground: 240 5% 45%;
+    --accent: 263 70% 52%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 240 6% 88%;
+    --input: 240 6% 88%;
+    --ring: 263 70% 52%;
+    --radius: 0.75rem;
+    --glow-primary: 263 70% 52%;
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 95%;
+    --card: 240 10% 7%;
+    --card-foreground: 0 0% 95%;
+    --popover: 240 10% 7%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 263 70% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 10% 12%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 240 8% 14%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 263 70% 52%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 240 8% 18%;
+    --input: 240 8% 18%;
+    --ring: 263 70% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Poppins', sans-serif;
+  }
+  .text-glow {
+    text-shadow: 0 0 40px hsl(263 70% 52% / 0.5), 0 0 80px hsl(263 70% 52% / 0.2);
+  }
+  .text-glow-white {
+    text-shadow: 0 0 30px hsl(0 0% 100% / 0.15);
+  }
+  .box-glow {
+    box-shadow: 0 0 20px hsl(263 70% 52% / 0.3), 0 0 60px hsl(263 70% 52% / 0.1);
+  }
+  .box-glow-hover {
+    box-shadow: 0 0 30px hsl(263 70% 52% / 0.5), 0 0 80px hsl(263 70% 52% / 0.2);
+  }
+  .glass-dark {
+    background: hsl(240 10% 8% / 0.5);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(240 8% 20% / 0.3);
+  }
+  .glass-light {
+    background: hsl(0 0% 100% / 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(0 0% 0% / 0.08);
+  }
+}
