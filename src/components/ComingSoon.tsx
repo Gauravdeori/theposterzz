@@ -133,7 +133,7 @@ const ComingSoon = () => {
         {/* Heading */}
         <motion.h1
           {...fadeUp(0.15)}
-          className="font-display font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] text-center text-foreground"
+          className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.95] sm:leading-[0.9] text-center text-foreground"
         >
           Something Big
           <br />
@@ -148,17 +148,17 @@ const ComingSoon = () => {
           "Every wall deserves our Posterzz."
         </motion.p>
 
-        <motion.div {...fadeUp(0.45)} className="mt-5 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-semibold tracking-widest uppercase text-primary">
+        <motion.div {...fadeUp(0.45)} className="mt-6 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] sm:text-xs font-semibold tracking-widest uppercase text-primary">
           Launching Soon 🚀
         </motion.div>
 
         {/* Action Buttons */}
-        <motion.div {...fadeUp(0.55)} className="flex flex-wrap justify-center gap-5 mt-10">
+        <motion.div {...fadeUp(0.55)} className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mt-10 w-full sm:w-auto px-4 sm:px-0">
           <a
             href="https://www.instagram.com/theposterzz.in/"
             target="_blank"
             rel="noopener noreferrer"
-            className="animate-shimmer group relative inline-flex items-center gap-3 bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285AEB_90%)] text-white rounded-2xl px-8 py-4 text-sm font-bold transition-all duration-500 hover:scale-110 hover:shadow-[0_20px_40px_rgba(214,36,159,0.3)] shadow-xl"
+            className="animate-shimmer group relative inline-flex items-center justify-center gap-3 bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285AEB_90%)] text-white rounded-2xl px-8 py-4 text-sm font-bold transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_40px_rgba(214,36,159,0.3)] shadow-xl w-full sm:w-auto text-center"
           >
             <InstagramIcon className="w-5 h-5" />
             Follow @theposterzz.in
@@ -168,44 +168,43 @@ const ComingSoon = () => {
             href="https://amzn.in/d/08KbGHFg"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-3 bg-[#232F3E] text-white rounded-2xl px-8 py-4 text-sm font-bold transition-all duration-500 hover:scale-110 hover:shadow-[0_20px_40px_rgba(35,47,62,0.3)] shadow-xl"
+            className="group relative inline-flex items-center justify-center gap-3 bg-[#232F3E] text-white rounded-2xl px-8 py-4 text-sm font-bold transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_40px_rgba(35,47,62,0.3)] shadow-xl w-full sm:w-auto text-center"
           >
-            <div className="flex flex-col items-center">
-              <ShoppingBag className="w-5 h-5 text-[#FF9900]" />
-            </div>
+            <ShoppingBag className="w-5 h-5 text-[#FF9900]" />
             Shop on Amazon
             <ArrowRight className="w-4 h-4 text-[#FF9900] transition-transform group-hover:translate-x-1" />
           </a>
         </motion.div>
 
         {/* Instagram Mini Browser */}
-        <motion.div {...fadeUp(0.65)} className="mt-20 w-full lg:max-w-5xl">
-          <div className="rounded-3xl overflow-hidden border border-white/40 shadow-[0_32px_64px_-15px_rgba(0,0,0,0.1)] bg-white/40 backdrop-blur-2xl transition-transform duration-700 hover:rotate-1 hover:scale-[1.01]">
+        <motion.div {...fadeUp(0.65)} className="mt-16 sm:mt-24 w-full lg:max-w-5xl">
+          <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-white/40 shadow-[0_32px_64px_-15px_rgba(0,0,0,0.1)] bg-white/40 backdrop-blur-2xl transition-transform duration-700 hover:rotate-1 hover:scale-[1.01]">
             {/* Browser chrome bar */}
-            <div className="flex items-center gap-2 px-6 py-4 border-b border-white/20 bg-white/40">
-              <div className="flex gap-2">
-                <span className="w-3.5 h-3.5 rounded-full bg-[#FF5F57] shadow-inner" />
-                <span className="w-3.5 h-3.5 rounded-full bg-[#FFBD2E] shadow-inner" />
-                <span className="w-3.5 h-3.5 rounded-full bg-[#28C840] shadow-inner" />
+            <div className="flex items-center justify-between gap-2 px-4 sm:px-6 py-3 sm:py-4 border-b border-white/20 bg-white/40">
+              <div className="flex gap-1.5 sm:gap-2">
+                <span className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded-full bg-[#FF5F57] shadow-inner" />
+                <span className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded-full bg-[#FFBD2E] shadow-inner" />
+                <span className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded-full bg-[#28C840] shadow-inner" />
               </div>
-              <div className="flex-1 mx-6">
-                <div className="flex items-center gap-3 bg-white/50 border border-black/5 rounded-xl px-4 py-2 text-sm text-foreground/60 shadow-inner">
-                  <svg className="w-4 h-4 shrink-0 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                  <span className="truncate font-medium">instagram.com/theposterzz.in</span>
+              <div className="flex-1 mx-3 sm:mx-6">
+                <div className="flex items-center justify-center sm:justify-start gap-2 sm:gap-3 bg-white/50 border border-black/5 rounded-xl px-2 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-sm text-foreground/60 shadow-inner">
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 shrink-0 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <span className="truncate font-medium max-w-[120px] sm:max-w-none">instagram.com/theposterzz.in</span>
                 </div>
               </div>
               <a
                 href="https://www.instagram.com/theposterzz.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold text-primary hover:text-primary/80 transition-colors whitespace-nowrap"
+                className="text-[10px] sm:text-sm font-bold text-primary hover:text-primary/80 transition-colors whitespace-nowrap"
               >
-                Visit Profile ↗
+                <span className="hidden sm:inline">Visit Profile</span>
+                <span className="sm:hidden">Open</span> ↗
               </a>
             </div>
             {/* Scrollable feed area */}
-            <div className="h-[450px] md:h-[550px] overflow-y-auto scrollbar-none bg-white/20">
-              <div className="grid grid-cols-3 gap-1 md:gap-2 p-1 md:p-2">
+            <div className="h-[350px] sm:h-[450px] md:h-[550px] overflow-y-auto scrollbar-none bg-white/20">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-0.5 sm:gap-2 p-0.5 sm:p-2">
                 {igPosts.map((post) => (
                   <a
                     key={post.id}
@@ -242,14 +241,14 @@ const ComingSoon = () => {
         </motion.div>
 
         {/* Join the Revolution Form */}
-        <motion.div {...fadeUp(0.8)} className="mt-20 w-full max-w-lg">
-          <div className="glass-light rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden group">
+        <motion.div {...fadeUp(0.8)} className="mt-16 sm:mt-24 w-full max-w-lg">
+          <div className="glass-light rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 md:p-12 shadow-2xl relative overflow-hidden group mx-4 sm:mx-0">
             <div className="absolute top-0 right-0 -mr-16 -mt-16 w-32 h-32 bg-primary/10 rounded-full blur-3xl transition-all duration-700 group-hover:scale-150" />
             
-            <h2 className="font-display font-black text-2xl md:text-3xl text-center text-foreground mb-2">
+            <h2 className="font-display font-black text-xl sm:text-2xl md:text-3xl text-center text-foreground mb-2">
               Join the <span className="text-primary italic">Revolution</span>
             </h2>
-            <p className="text-foreground/60 text-sm md:text-base text-center mb-10 font-medium">
+            <p className="text-foreground/60 text-xs sm:text-sm md:text-base text-center mb-10 font-medium">
               Be the first to know when we launch our exclusive drops.
             </p>
 
