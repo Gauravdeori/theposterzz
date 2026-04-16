@@ -40,16 +40,56 @@ const ComingSoon = () => {
   const [dark, setDark] = useState(true);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
   }, [dark]);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.phone) {
-      setFormSubmitted(true);
-      toast({ title: "You're in! 🎉", description: "Welcome to the poster revolution." });
+    if (!formData.name || !formData.email || !formData.phone) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: "New Lead from THEPOSTERZZ Launchpad",
+          from_name: "THEPOSTERZZ Launchpad",
+          message: `New subscriber details:\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}`,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormSubmitted(true);
+        toast({ title: "You're in! 🎉", description: "Welcome to the poster revolution." });
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Submission failed",
+          description: result.message || "Please check your Access Key or try again later.",
+        });
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Connection Error",
+        description: "Something went wrong. Please check your internet and try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -246,9 +286,10 @@ const ComingSoon = () => {
                 </div>
                 <button
                   type="submit"
-                  className="mt-1 w-full py-3.5 rounded-xl bg-primary text-primary-foreground font-bold text-sm tracking-wide transition-all duration-300 hover:scale-[1.02] hover:box-glow-hover box-glow"
+                  disabled={isSubmitting}
+                  className="mt-1 w-full py-3.5 rounded-xl bg-primary text-primary-foreground font-bold text-sm tracking-wide transition-all duration-300 hover:scale-[1.02] hover:box-glow-hover box-glow disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  Notify Me 🚀
+                  {isSubmitting ? "Sending... 🚀" : "Notify Me 🚀"}
                 </button>
               </form>
             ) : (
